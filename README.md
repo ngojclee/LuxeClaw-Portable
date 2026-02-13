@@ -60,13 +60,27 @@ powershell -ExecutionPolicy Bypass -File .\Scripts\launch-all.ps1
 
 ### Backup Profiles
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\Scripts\backup-portable.ps1
+powershell -ExecutionPolicy Bypass -File .\Scripts\4-backup.ps1
 ```
 
 ### Restore on New Machine
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\Scripts\restore-portable.ps1
+powershell -ExecutionPolicy Bypass -File .\Scripts\5-restore.ps1
 ```
+
+## Update Scripts (Without Losing Data)
+
+To update to the latest version of scripts:
+```powershell
+powershell -ExecutionPolicy Bypass -File .\update.ps1
+```
+
+This will:
+- Download latest scripts from GitHub
+- **Preserve** your Browser and Profiles folders
+- Update only the code, not your data
+
+**⚠️ DO NOT use `rm -rf && git clone` - it will delete your profiles!**
 
 ## Directory Structure
 
