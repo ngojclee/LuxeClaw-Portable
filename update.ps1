@@ -3,13 +3,23 @@
     Update LuxeClaw Portable scripts without losing data
 .DESCRIPTION
     Safely updates scripts and config from Git while preserving Browser and Profiles.
+    Supports private repos with GitHub token.
 #>
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
 $currentDir = Get-Location
+
+# GitHub Configuration (edit this for private repos)
+$githubToken = ""  # Leave empty for public repos, or paste your token: "ghp_xxxxx"
 $repoUrl = "https://github.com/ngojclee/LuxeClaw-Portable.git"
+
+# Build authenticated URL if token is provided
+if ($githubToken) {
+    $repoUrl = $repoUrl -replace "https://", "https://$githubToken@"
+}
+
 $tempDir = Join-Path $env:TEMP "LuxeClaw-Portable-Update"
 
 Write-Host ""
@@ -26,6 +36,7 @@ git clone --depth 1 $repoUrl $tempDir 2>&1 | Out-Null
 
 if (-not (Test-Path $tempDir)) {
     Write-Host "ERROR: Failed to download updates" -ForegroundColor Red
+    Write-Host "Tip: If repo is private, add your token to line 14 of update.ps1" -ForegroundColor Yellow
     exit 1
 }
 
