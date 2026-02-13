@@ -1,0 +1,10 @@
+# LuxeClaw Portable - Browser and Profiles
+Browser/
+Profiles/
+*.zip
+
+# Temporary files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

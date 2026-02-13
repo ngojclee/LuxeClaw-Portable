@@ -1,0 +1,19 @@
+{
+    "extension_dir": "Chrome",
+    "shops": [
+        {
+            "name": "Shop1"
+        },
+        {
+            "name": "Shop2"
+        }
+    ],
+    "defaults": {
+        "startup_mode": 4,
+        "startup_urls": [
+            "https://www.etsy.com/your/orders/sold/new"
+        ],
+        "dev_mode": true,
+        "kiosk_printing": false
+    }
+}
