@@ -10,15 +10,24 @@ git clone https://github.com/ngojclee/LuxeClaw-Portable.git
 cd LuxeClaw-Portable
 ```
 
-### 2. Initial Setup
+### 2. Run the Interactive Menu
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\Scripts\setup.ps1
+powershell -ExecutionPolicy Bypass -File .\portable.ps1
 ```
 
-This will:
-- Download Chromium portable (if not present)
-- Create `_TEMPLATE` profile with default settings
-- Launch browser for you to install FoxyProxy and configure extensions
+The menu will guide you through:
+1. **Initial Setup** - Download Chromium & create template
+2. **Clone Profiles** - Create profiles for all shops
+3. **Launch All Shops** - Open all profiles at once
+4. **Backup/Restore** - Save and restore your configurations
+
+### Alternative: Run Scripts Directly
+```powershell
+# Step-by-step manual execution
+powershell -ExecutionPolicy Bypass -File .\Scripts\1-setup.ps1
+powershell -ExecutionPolicy Bypass -File .\Scripts\2-clone-profiles.ps1
+powershell -ExecutionPolicy Bypass -File .\Scripts\3-launch-all.ps1
+```
 
 ### 3. Configure Shops
 Edit `shops.json` to add your shop names:
